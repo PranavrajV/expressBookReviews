@@ -83,7 +83,7 @@ public_users.get('/review/:isbn',function (req, res) {
     }
 });
 
-async function getBooksAysnc() {
+async function getBooksAsync() {
   try {
     const response = await axios.get('http://localhost:5000/');
     console.log("Books:", response.data);
@@ -92,7 +92,7 @@ async function getBooksAysnc() {
   }
 }
 
-async function getBooksByISBNAysnc(isbn) {
+async function getBooksByISBNAsync(isbn) {
   try {
     const response = await axios.get(`http://localhost:5000/isbn/${isbn}`);
     console.log(`Books with ISBN ${isbn}:`, response.data);
@@ -101,7 +101,7 @@ async function getBooksByISBNAysnc(isbn) {
   }
 }
 
-async function getBooksByAuthorAysnc(author) {
+async function getBooksByAuthorAsync(author) {
   try {
     const response = await axios.get(`http://localhost:5000/author/${author}`);
     console.log(`Books by ${author}:`, response.data);
@@ -110,7 +110,7 @@ async function getBooksByAuthorAysnc(author) {
   }
 }
 
-async function getBooksByTitleAysnc(title) {
+async function getBooksByTitleAsync(title) {
   try {
     const response = await axios.get(`http://localhost:5000/title/${title}`);
     console.log(`Books with title ${title}:`, response.data);
@@ -119,11 +119,8 @@ async function getBooksByTitleAysnc(title) {
   }
 }
 
-getBooksAsync();
-getBooksByISBNAsync(1);
-getBooksByAuthorAsync("Hans Christian Andersen");
-getBooksByTitleAysnc("The Epic Of Gilgamesh");
-
-
 module.exports.general = public_users;
 module.exports.getBooksAsync = getBooksAsync;
+module.exports.getBooksByISBNAsync = getBooksByISBNAsync;
+module.exports.getBooksByAuthorAsync = getBooksByAuthorAsync;
+module.exports.getBooksByTitleAsync = getBooksByTitleAsync;
